@@ -118,6 +118,7 @@ class TFrame extends TElement {
         for (let child of this.childNodes) {
             this._templateNode(child, data);
         }
+        this.toggleAttribute("unset", false);
     }
 }
 

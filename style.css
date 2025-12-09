@@ -128,7 +128,7 @@ ul {
     aspect-ratio: 1 / 1;
     width: var(--side-panel-width);
     height: var(--side-panel-width);
-    background-image: url("images/dp2.jpg");
+    background-image: url("images/dp4.jpg");
     background-size: cover;
 }
 
@@ -140,6 +140,15 @@ ul {
     gap: calc(2 * var(--mm));
 }
 
+.loading {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 3em;
+    color: white;
+    z-index: 10000;
+}
 
 /* .header h1 {
     font-size: 2em;
@@ -260,4 +269,12 @@ a {
 a:hover {
     transform: scale(1.05);
     color: rgb(52, 52, 88);
+}
+
+
+
+
+
+[unset] {
+    display: none;
 }
