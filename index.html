@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Resume</title>
+    <script type="module" src="index.js"></script>
+
+</head>
+<body>
+    <div onclick = "fitToA4()" title="Print" class = "shrink-to-fit">
+    
+    </div>
+    <t-frame id = "root" class = "col" small-gap>
+        <div class = "guide"></div>
+
+        <!-- HEADER -->
+        <div class = "header row">
+            <div class = "profile-pic">
+            </div>
+            <div class = "col" tiny-gap>
+                <div>
+                    <h1>{{info.name}}</h1>
+                    <h3>{{info.title}}</h3>
+                </div>
+                <p>{{info.location}}</p>
+                <div class = "row" tiny-gap>
+                    <p>{{info.email}}</p>
+                    <p> - </p>
+                    <p>{{info.number}}</p>
+                </div>
+            </div>
+        </div>
+
+        
+        <div class = "main">
+
+            <!-- Side Column -->
+            <div class = "side-small col" big-gap>
+                
+                <div class="col" tiny-gap>
+                    <h2 border-bottom>Skills</h2>
+                    <t-for key = "skills" class = "skills">
+                        <div class="skill" title = "{{title.replace('-', ' ') + ' ' + new Array(level).fill('★').join(' ')}}" key = "{{title}}">
+                            <t-img src = "./images/{{file}}" alt = "{{name}} icon" class="skill-icon">
+                        </div>
+                    </t-for>
+                </div>
+
+                <div class="col" tiny-gap>
+                    <h2 border-bottom>Education</h2>
+                    <t-for key = "education" class = "col" small-gap>
+                        <div small>
+                            <b>{{degree}}</b>
+                            <p>{{institution}} <i>({{date}})</i></p>
+                        </div>
+                    </t-for>
+                </div>
+            </div>
+
+            
+
+            <!-- Main Column -->
+            <div class = "side-large col" space> 
+                <div class = "col" tiny-gap>
+                    <h2 border-bottom>Summary</h2>
+                    <p small>{{summaries.engineering}}</p>
+                </div>
+
+                <div class = "col" tiny-gap>
+                    <h2  border-bottom>Experience</h2>
+                    <t-for indent key = "experience" class = "col" small-gap>
+                        <div class="col" tiny-gap hover-highlight skills = "{{(skills||[]).join(' ')}}" 
+                            onmouseenter="document.querySelector('.skills').setAttribute('skills', this.getAttribute('skills'))"
+                            onmouseleave="document.querySelector('.skills').removeAttribute('skills')">
+                            <div class = "row-space bar-title">
+                                <div class = "row-center" tiny-gap>
+                                    <h3 inline>{{position}}</h3> - <a href = "{{url}}" target="_blank"><b>{{company}}</b></a>
+                                </div>
+                                <i small style = "padding-right: 1.2em;">{{date}}</i>
+                            </div>
+                            <ul small>
+                                <t-for key = "detailsShort">
+                                    <li>{{.}}</li>
+                                </t-for>
+                            </ul>
+                        </div>
+                    </t-for>
+                </div>
+
+                <div class = "col" tiny-gap>
+                    <h2  border-bottom>Projects</h2>
+                    <t-for indent key = "projects" class = "col" small-gap>
+                        <div class="col" tiny-gap hover-highlight skills = "{{(skills||[]).join(' ')}}" 
+                            onmouseenter="document.querySelector('.skills').setAttribute('skills', this.getAttribute('skills'))"
+                            onmouseleave="document.querySelector('.skills').removeAttribute('skills')">
+                              <div class = "row-space">
+                                <h3 inline>{{name}}</h3> 
+                                <i style = "padding-right: 1.2em;">{{date}}</i>
+                            </div>
+                             <ul small>
+                                <t-for key = "detailsShort">
+                                    <li>{{.}}</li>
+                                </t-for>
+                            </ul>
+                        </div>
+                    </t-for>
+                </div>
+            </div>
+        </div>
+
+        <t-style>
+            .skill {
+                transition: opacity 0.3s;
+            }
+            @media screen {
+                {{
+                    skills.map(skill => `
+                        .skills[skills]:not([skills~="${skill.title}"]) .skill[key="${skill.title}"] {
+                            opacity: 0.25;
+                        }
+                    `).join("\n")
+                }}
+            }
+        </t-style>
+    </t-frame>
+</body>
+</html>
