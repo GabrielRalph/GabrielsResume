@@ -1,8 +1,19 @@
 import data from './data.js';
 import "./template.js";
 
+
+const queryParams = new URLSearchParams(window.location.search);
+let query = {
+    type: queryParams.get('type') || 'engineering'
+};
+
+data.query = query;
+
+
 const root = document.getElementById('root');
 root.value = data;
+
+
 window.onkeydown = (e) => {
     if (e.key === "g") {
         root.toggleAttribute("guides")
