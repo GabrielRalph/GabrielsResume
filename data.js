@@ -1,4 +1,16 @@
 export default {
+    links: [
+        {
+            name: "GitHub",
+            url: "https://github.com/GabrielRalph",
+            icon: "github.svg"
+        },
+        {
+            name: "LinkedIn",
+            url: "https://www.linkedin.com/in/gabriel-ralph-29526915b/",
+            icon: "linkedin.svg"
+        },
+    ],
     info: {
         name: "Gabriel L.T. Ralph",
         title: "Mechatronics Engineer | Software Developer",
@@ -279,6 +291,7 @@ export default {
         }
     ],
     projects: [
+        
         {
             name: "CNC Automation",
             date: "2025-Present",
@@ -342,6 +355,28 @@ export default {
                 "Textile-Fabrication",
                 "CNC-Manufacturing"
             ]
-        }
+        }, 
+        
+        {
+            date: "2020",
+            name: "Guru, Smart Lock System",
+            detailsShort: [
+                "Hacked the looking system at sydney university housing corporative to add internet control.",
+                "Connected ESP32 to firebase to listen to open and lock data nodes.",
+                "Created a admin dashboard so that residents could add/remove members and assign door access.",
+                "The dashboard was further extended to enable minute taking and meeting attendance."
+            ]
+        },
+        {
+            date: "2019",
+            name: "PostAR",
+            detailsShort: [
+                "Developed an augmented-reality application that overlays physical postcards with interactive videos, animations and effects.",
+                "Utilised Unity and Vuforia to create AR experiences triggered by custom postcard designs.",
+                "Designed intuitive UI/UX elements for seamless interaction within the AR environment.",
+                "Created a backend system for managing postcard assets and user data.",
+                "Tested and optimised the app for performance across various mobile devices."
+            ]
+        },
     ]
 }

@@ -28,17 +28,25 @@
         <div class = "header row">
             <div class = "profile-pic">
             </div>
-            <div class = "col" tiny-gap>
-                <div>
-                    <h1>{{info.name}}</h1>
-                    <h3>{{info.title}}</h3>
+
+            <div class = "row" space w-100>
+
+                <div class = "col" tiny-gap>
+                    <div>
+                        <h1>{{info.name}}</h1>
+                        <h3>{{info.title}}</h3>
+                    </div>
+                    <p>{{info.location}}</p>
+                    <div class = "row" tiny-gap>
+                        <p>{{info.email}}</p>
+                        <p> - </p>
+                        <p>{{info.number}}</p>
+                    </div>
                 </div>
-                <p>{{info.location}}</p>
-                <div class = "row" tiny-gap>
-                    <p>{{info.email}}</p>
-                    <p> - </p>
-                    <p>{{info.number}}</p>
-                </div>
+
+                <t-for key = "links" class = "col" tiny-gap>
+                    <a href = "{{url}}" title = "{{name}}" target="_blank"><t-img src = "./images/{{icon}}" alt = "{{name}} icon" class="link-icon"></a>
+                </t-for>
             </div>
         </div>
 

@@ -114,14 +114,19 @@ ul {
     border: 1px dashed #493a3ab3;
 }
 
+.link-icon {
+    height: 2em;
+}
+
 
 .header {
     background: #3e719b;
     color: white;
     /* height: var(--side-panel-width); */
 }
-.header > .col {
-    padding: calc(var(--gap) * 0.7) 0;
+.header > .col, .header > .row {
+    padding: calc(var(--gap) * 0.7);
+    padding-left: 0;
 }
 
 .profile-pic {
@@ -213,7 +218,9 @@ t-for[key="skills"] img{
 }
 
 
-
+[w-100] {
+    width: 100%;
+}
 
 [inline] {
     display: inline;
